@@ -1,0 +1,14 @@
+<div class="panel panel-default">
+	<div class="panel-heading">
+  	<h3 class="panel-title"><%= link_to "#{comment.user.name}", "#" %> | <small>Posted <%= time_ago_in_words(comment.created_at) %> ago</small>
+		<% if comment.created_at != comment.updated_at %>
+    		<small>| Edited <%= time_ago_in_words(comment.updated_at) %> ago</small>
+  		<% end %>
+  		<small>
+  			<% if comment.user == current_user %>| <%= link_to "Edit", edit_location_comment_path(comment.location, comment ) %>
+  			<% end %>
+  		</small>		
+  	</h3>
+  	<div class="panel-body"><%= simple_format(comment.content) %></div>
+	</div>
+

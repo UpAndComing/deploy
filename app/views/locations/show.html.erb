@@ -1,0 +1,27 @@
+<div style='width: 100%;'>
+  <div id="map" style='width: 100%; height: 400px;'></div>
+  <%= render 'layouts/location_maps' %>
+</div>
+
+<%= link_to 'Edit', edit_location_path(@location) %> |
+<%= link_to 'Back', locations_path %>
+
+<div class="cpr_center_info">
+	<h1><%= @location.name %></h1>
+	<h3><%= @location.address %></h3>
+</div>
+
+	<div class="likes">
+		<%= render partial: "locations/likes/likes" %>
+	</div>
+</div>
+
+<div class="user_comments">
+      <%= render @location.comments %>
+      <% if user_signed_in? %>
+        <%= render "comments/form" %>
+      <% end %>
+</div>
+
+
+

@@ -1,0 +1,7 @@
+<% if user_signed_in? && current_user.likes?(@location) %>
+<%= link_to "Unlike", location_like_path(@location), method: :delete, remote: true %>
+<% else %>
+<%= link_to "Like", location_like_path(@location), method: :post, remote: true %>
+<% end %>
+
+<%= @location.likes.count %>
